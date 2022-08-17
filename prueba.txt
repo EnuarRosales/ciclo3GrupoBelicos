@@ -1,4 +1,6 @@
-esto es una prueba realizada por Henry Jimenez
+esto es una prueba realizada por Enuar Rosales
 
-Hola mi nombre es Henry Mauricio Jimenez Lozano, tripulante de mision TIC 2022 de la UDEA y este es mi commit 
+Hola mi nombre es Arley Pinchado, tripulante de mision TIC 2022 de la UDEA y este es mi commit 
 para el grupo BELICOS.
+
+Para continuar con la entrega del requerimeinto realizo el commit solicitado. Henry Mauricio Jimenez Lozano.
