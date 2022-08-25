@@ -1,7 +1,14 @@
 package com.belicos.proyecto.entities;
 
-public class Empresa {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Empresa {
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
     private String nombre;
     private String direccion;
     private Long telefono;
