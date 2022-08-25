@@ -1,4 +1,6 @@
 package com.belicos.proyecto.controllers;
+import com.belicos.proyecto.entities.Empleado;
+import com.belicos.proyecto.entities.Empresa;
 import com.belicos.proyecto.entities.MovimientoDinero;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,5 +24,14 @@ public class MovimientoDineroController {
         listaMovimientoDinero.add(movimientoDinero);
         return listaMovimientoDinero;
     }
+
+
+    @GetMapping("/users/{id}/movements/eliminar")
+    public List<MovimientoDinero> eliminarMovimientoDineroId(@PathVariable int id){
+        return Collections.singletonList(listaMovimientoDinero.remove(id-1));
+    }
+
+
+
 
 }

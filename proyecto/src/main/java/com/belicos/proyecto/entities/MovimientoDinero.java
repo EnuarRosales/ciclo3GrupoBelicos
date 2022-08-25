@@ -1,11 +1,19 @@
 package com.belicos.proyecto.entities;
 
+import javax.persistence.*;
+
+@Entity
 public class MovimientoDinero {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private Double montoMovimiento;
 
     private String conceptoMovimiento;
 
+    @ManyToOne
+    @JoinColumn(name= "empleado_id")
     private Empleado enpleado;
 
     public MovimientoDinero() {

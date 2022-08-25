@@ -1,8 +1,16 @@
 package com.belicos.proyecto.entities;
 
+import javax.persistence.*;
+
+@Entity
 public class Empleado {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String nombre;
     private  String email;
+    @OneToMany(mappedBy = "empleado")
     private Empresa empresa;
     private String  rol;
 
