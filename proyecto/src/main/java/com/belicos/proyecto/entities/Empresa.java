@@ -7,8 +7,11 @@ import javax.persistence.Id;
 
 @Entity
 public class Empresa {
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String nombre;
     private String direccion;
     private Long telefono;
@@ -58,6 +61,10 @@ public class Empresa {
 
     public void setNIT(Long  NIT) {
         this.NIT = NIT;
+    }
+
+    public long getId() {
+        return id;
     }
 
     @Override
