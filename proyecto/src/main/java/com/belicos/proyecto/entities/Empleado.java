@@ -1,9 +1,8 @@
 package com.belicos.proyecto.entities;
 
 import javax.persistence.*;
-
 @Entity
-public class Empleado {
+public class Empleado  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,15 +14,27 @@ public class Empleado {
     private String  rol;
 
 
-    public Empleado(String nombre, String email, Empresa empresa, String rol) {
+    public Empleado() {
+    }
+
+
+    public Empleado(long id, String nombre, String email, Empresa empresa, String rol) {
+        this.id = id;
         this.nombre = nombre;
         this.email = email;
         this.empresa = empresa;
         this.rol = rol;
     }
 
-    public Empleado() {
+    public long getId() {
+        return id;
     }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
 
     public String getNombre() {
         return nombre;

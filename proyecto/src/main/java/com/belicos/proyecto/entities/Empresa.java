@@ -1,26 +1,49 @@
 package com.belicos.proyecto.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
-public class Empresa {
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+public class Empresa  {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String nombre;
     private String direccion;
     private Long telefono;
     private Long  NIT;
 
+    @ManyToOne
+    @JoinColumn(name = "empleado_id")
+    private Empleado empleado;
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
 
     //CONSTRUCTOR
-    public Empresa(String nombre, String direccion, Long  telefono, Long  NIT) {
+
+
+    public Empresa(long id, String nombre, String direccion, Long telefono, Long NIT) {
+        this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.NIT = NIT;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Empresa() {

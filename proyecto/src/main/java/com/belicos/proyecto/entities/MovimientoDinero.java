@@ -20,14 +20,20 @@ public class MovimientoDinero {
 
     }
 
-    public MovimientoDinero(Double montoMovimiento,  String conceptoMovimiento,Empleado enpleado) {
+    public MovimientoDinero(long id, Double montoMovimiento, String conceptoMovimiento, Empleado enpleado) {
+        this.id = id;
         this.montoMovimiento = montoMovimiento;
-
         this.conceptoMovimiento = conceptoMovimiento;
-        this.enpleado=enpleado;
+        this.enpleado = enpleado;
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public Double getMontoMovimiento() {
         return montoMovimiento;
