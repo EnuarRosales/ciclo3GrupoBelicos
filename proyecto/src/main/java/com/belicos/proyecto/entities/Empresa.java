@@ -4,7 +4,12 @@ package com.belicos.proyecto.entities;
 import javax.persistence.*;
 
 @Entity
+<<<<<<< HEAD
 public class Empresa  {
+=======
+public class Empresa {
+
+>>>>>>> 40c621a734fda836ab4e1eb9267e064f8bcee99f
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -81,6 +86,10 @@ public class Empresa  {
 
     public void setNIT(Long  NIT) {
         this.NIT = NIT;
+    }
+
+    public long getId() {
+        return id;
     }
 
     @Override
