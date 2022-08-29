@@ -7,7 +7,7 @@ public class MovimientoDinero {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private Double montoMovimiento;
 
     private String conceptoMovimiento;
@@ -20,8 +20,7 @@ public class MovimientoDinero {
 
     }
 
-    public MovimientoDinero(long id, Double montoMovimiento, String conceptoMovimiento, Empleado enpleado) {
-        this.id = id;
+    public MovimientoDinero(Double montoMovimiento, String conceptoMovimiento, Empleado enpleado) {
         this.montoMovimiento = montoMovimiento;
         this.conceptoMovimiento = conceptoMovimiento;
         this.enpleado = enpleado;

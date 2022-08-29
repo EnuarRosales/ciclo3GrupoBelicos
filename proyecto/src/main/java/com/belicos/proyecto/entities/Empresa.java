@@ -4,21 +4,15 @@ package com.belicos.proyecto.entities;
 import javax.persistence.*;
 
 @Entity
-<<<<<<< HEAD
 public class Empresa  {
-=======
-public class Empresa {
-
->>>>>>> 40c621a734fda836ab4e1eb9267e064f8bcee99f
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String nombre;
     private String direccion;
     private Long telefono;
     private Long  NIT;
-
+/*
     @ManyToOne
     @JoinColumn(name = "empleado_id")
     private Empleado empleado;
@@ -29,26 +23,13 @@ public class Empresa {
 
     public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
-    }
-
-
+    }*/
     //CONSTRUCTOR
-
-
-    public Empresa(long id, String nombre, String direccion, Long telefono, Long NIT) {
-        this.id = id;
+    public Empresa(String nombre, String direccion, Long telefono, Long NIT) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.NIT = NIT;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public Empresa() {
@@ -56,6 +37,10 @@ public class Empresa {
 
 
     //GETTERS AND SETTERS
+    public long getId() {
+        return id;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -88,9 +73,7 @@ public class Empresa {
         this.NIT = NIT;
     }
 
-    public long getId() {
-        return id;
-    }
+
 
     @Override
     public String toString() {
