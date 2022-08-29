@@ -2,15 +2,38 @@ package com.belicos.proyecto.controllers;
 
 import com.belicos.proyecto.entities.Empleado;
 import com.belicos.proyecto.entities.Empresa;
-import com.belicos.proyecto.entities.MovimientoDinero;
+import com.belicos.proyecto.services.EmpleadoService;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 @RestController
 public class EmpleadoController {
+
+    EmpleadoService empleadoService;
+
+    public EmpleadoController(EmpleadoService empleadoService) {
+        this.empleadoService = empleadoService;
+    }
+
+    @GetMapping("/users")
+    public List<Empleado> verEmpleados(){
+        return empleadoService.getEmpleados();
+    }
+
+    @PostMapping("/users")
+    public Empleado postEmpleado(@RequestBody Empleado empleado) {
+        return this.empleadoService.guardarEmpleado(empleado);
+    }
+
+
+
+    /*
+
+
+    OJO QUE ESTO ESTABA BIEN
+
     List<Empleado> listaEmpleados = new ArrayList<Empleado>();
 
 
@@ -37,7 +60,7 @@ public class EmpleadoController {
         return Collections.singletonList(listaEmpleados.get(id-1));
     }
 
-
+*/
 
 
 

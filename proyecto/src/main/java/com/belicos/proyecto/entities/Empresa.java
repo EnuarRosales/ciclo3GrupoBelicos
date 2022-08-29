@@ -12,18 +12,7 @@ public class Empresa  {
     private String direccion;
     private Long telefono;
     private Long  NIT;
-/*
-    @ManyToOne
-    @JoinColumn(name = "empleado_id")
-    private Empleado empleado;
 
-    public Empleado getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
-    }*/
     //CONSTRUCTOR
     public Empresa(String nombre, String direccion, Long telefono, Long NIT) {
         this.nombre = nombre;

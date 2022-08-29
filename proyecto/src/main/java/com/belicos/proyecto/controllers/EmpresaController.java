@@ -1,14 +1,36 @@
 package com.belicos.proyecto.controllers;
 
 import com.belicos.proyecto.entities.Empresa;
+import com.belicos.proyecto.services.EmpresaService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @RestController
 public class EmpresaController {
+    EmpresaService empresaService;
+
+    public EmpresaController(EmpresaService empresaService) {
+        this.empresaService = empresaService;
+    }
+
+    @GetMapping("/enterprises")
+    public List<Empresa> EmpresaList(){
+        return this.empresaService.getEmpresas();
+    }
+
+    @PostMapping("/enterprises")
+    public Empresa  postEmpresa(@RequestBody Empresa empresa){
+        return this.empresaService.guardarEmpresa(empresa);
+    }
+
+
+
+
+
+
+/*OJO QUE ESTO ESTABA BIEN
+
     List<Empresa> listaEmpresas = new ArrayList<Empresa>();
 
     @GetMapping("/enterprises")
@@ -32,6 +54,11 @@ public class EmpresaController {
     public List<Empresa> eliminarEmpresaId(@PathVariable int id){
         return Collections.singletonList(listaEmpresas.remove(id-1));
     }
+    */
+
+
+
+
 
     /*
     @GetMapping("/enterprises/{id}")

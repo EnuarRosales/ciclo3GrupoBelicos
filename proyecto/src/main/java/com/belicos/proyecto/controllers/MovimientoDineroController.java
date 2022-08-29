@@ -1,15 +1,43 @@
 package com.belicos.proyecto.controllers;
-import com.belicos.proyecto.entities.Empleado;
+
 import com.belicos.proyecto.entities.Empresa;
 import com.belicos.proyecto.entities.MovimientoDinero;
+import com.belicos.proyecto.services.MovimientoDineroService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 @RestController
 public class MovimientoDineroController {
+    MovimientoDineroService movimientoDineroService;
+
+    public MovimientoDineroController(MovimientoDineroService movimientoDineroService) {
+        this.movimientoDineroService = movimientoDineroService;
+    }
+
+    @GetMapping("/users/{id}/movements")
+    public MovimientoDinero verMovimientoDinero(MovimientoDinero movimientoDinero){
+        movimientoDinero =movimientoDineroService.verMovimientoDineroID(movimientoDinero);
+        return  movimientoDinero;
+    }
+
+
+    @PostMapping("/users/{id_empleado}/movements")
+    public MovimientoDinero postMovimientoDinero(@RequestBody MovimientoDinero movimientoDinero){
+        return this.movimientoDineroService.guardarMovimientoDineroID(movimientoDinero);
+    }
+
+
+
+
+
+
+
+
+
+
+    /*
+    OJO QUE ESTO ESTABA BIEN
+
 
     List<MovimientoDinero> listaMovimientoDinero = new ArrayList<MovimientoDinero>();
 
@@ -30,7 +58,7 @@ public class MovimientoDineroController {
     public List<MovimientoDinero> eliminarMovimientoDineroId(@PathVariable int id){
         return Collections.singletonList(listaMovimientoDinero.remove(id-1));
     }
-
+*/
 
 
 
