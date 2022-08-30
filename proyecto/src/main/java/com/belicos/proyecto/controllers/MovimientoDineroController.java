@@ -1,6 +1,5 @@
 package com.belicos.proyecto.controllers;
 
-import com.belicos.proyecto.entities.Empresa;
 import com.belicos.proyecto.entities.MovimientoDinero;
 import com.belicos.proyecto.services.MovimientoDineroService;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +25,11 @@ public class MovimientoDineroController {
         return this.movimientoDineroService.guardarMovimientoDineroID(movimientoDinero);
     }
 
+
+    @DeleteMapping(value = "/{id}/movements")
+    public void delete(@PathVariable Long id){
+        movimientoDineroService.deleteById(id);
+    }
 
 
 

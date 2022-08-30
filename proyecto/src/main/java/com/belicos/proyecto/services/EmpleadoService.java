@@ -6,6 +6,7 @@ import com.belicos.proyecto.repositories.EmpleadoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmpleadoService {
@@ -23,6 +24,21 @@ public class EmpleadoService {
     public Empleado guardarEmpleado(Empleado empleado) {
         return this.empleadoRepository.save(empleado);
     }
+
+    public Empleado verEmpleadoID(Long id){
+        Optional<Empleado> optMarca= empleadoRepository.findById(id);
+        if(optMarca.isPresent()){
+            return optMarca.get();
+        }
+        else {
+            return  new Empleado();
+        }
+    }
+    public void eliminarEmpleadoID(Long id){
+        empleadoRepository.deleteById(id);
+    }
+
+
 
 
 

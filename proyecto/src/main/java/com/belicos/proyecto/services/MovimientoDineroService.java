@@ -24,6 +24,11 @@ public class MovimientoDineroService {
     }
 
 
+    public void deleteById(Long id){
+        movimientoDineroRepository.deleteById(id);
+    }
+
+
 
 
 

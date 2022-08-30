@@ -1,11 +1,9 @@
 package com.belicos.proyecto.controllers;
 
 import com.belicos.proyecto.entities.Empleado;
-import com.belicos.proyecto.entities.Empresa;
 import com.belicos.proyecto.services.EmpleadoService;
 import org.springframework.web.bind.annotation.*;
-import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.List;
 
 @RestController
@@ -26,6 +24,19 @@ public class EmpleadoController {
     public Empleado postEmpleado(@RequestBody Empleado empleado) {
         return this.empleadoService.guardarEmpleado(empleado);
     }
+
+    @GetMapping("/users/{id}")
+    public Empleado verEmpleadoID_C(@PathVariable Long id) {
+        return empleadoService.verEmpleadoID(id);
+    }
+
+    @DeleteMapping("/users/{id}")
+    public void eliminarEmpresaID_C(@PathVariable Long id){
+        empleadoService.eliminarEmpleadoID(id);
+    }
+
+
+
 
 
 

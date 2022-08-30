@@ -2,6 +2,7 @@ package com.belicos.proyecto.controllers;
 
 import com.belicos.proyecto.entities.Empresa;
 import com.belicos.proyecto.services.EmpresaService;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,61 +26,34 @@ public class EmpresaController {
     }
 
 
-
-
-
-
-/*OJO QUE ESTO ESTABA BIEN
-
-    List<Empresa> listaEmpresas = new ArrayList<Empresa>();
-
-    @GetMapping("/enterprises")
-    public List<Empresa> verEmpresa(){
-        return listaEmpresas;
-    }
-
-
-    @PostMapping("/enterprises")
-    public List<Empresa> postEmpresa(@RequestBody Empresa empresas) {
-        listaEmpresas.add(empresas);
-        return listaEmpresas;
-    }
-
     @GetMapping("/enterprises/{id}")
-    public List<Empresa> verEmpresaId(@PathVariable int id){
-        return Collections.singletonList(listaEmpresas.get(id-1));
+    public Empresa verEmpresaID(@PathVariable Long id) {
+        return empresaService.verEmpesaID(id);
     }
 
-    @GetMapping("/enterprises/eliminar/{id}")
-    public List<Empresa> eliminarEmpresaId(@PathVariable int id){
-        return Collections.singletonList(listaEmpresas.remove(id-1));
-    }
-    */
-
-
-
-
-
-    /*
-    @GetMapping("/enterprises/{id}")
-    public List<Empresa> editarEmpresaId(@PathVariable int id, @RequestBody Empresa empresas){
-        listaEmpresas.remove(new Empresa(id));
-        listaEmpresas.add(empresas);
-        return listaEmpresas;
-    }
-    */
-
+    @DeleteMapping("/enterprises/eliminar/{id}")
+    public void delete(@PathVariable Long id){
+        empresaService.eliminarEmpresaID(id);
     }
 
 
-    /*
-    @GetMapping("/enterprises/{id}")
-    public List<Empresa> editarEmpresaId(@PathVariable int id, @RequestBody Empresa empresas){
-        Collections.singletonList(listaEmpresas.add(empresas));
-        listaEmpresas.add(empresas);
-        return Collections.singletonList(listaEmpresas.get(id-1));
+    @GetMapping("/enterprises/editar/{id}")
+    public String editar(Empresa empresa, Model model){
+        empresa = empresaService.encontrarEmpresa(empresa);
+        model.addAttribute("empresa", empresa);
+        return "modificar";
     }
-*/
+
+
+
+
+
+
+
+}
+
+
+
 
 
 
