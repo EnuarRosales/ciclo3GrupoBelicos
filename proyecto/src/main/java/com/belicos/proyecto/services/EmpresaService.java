@@ -2,56 +2,42 @@ package com.belicos.proyecto.services;
 
 import com.belicos.proyecto.entities.Empresa;
 import com.belicos.proyecto.repositories.EmpresaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class EmpresaService {
+public class EmpresaService implements IEmpresaService {
+
+
     private EmpresaRepository empresaRepository;
 
     public EmpresaService(EmpresaRepository empresaRepository) {
         this.empresaRepository = empresaRepository;
     }
 
-    public List<Empresa>getEmpresas(){
-    return this.empresaRepository.findAll();
+    @Override
+    public void guardar(Empresa empresa) {
+        empresaRepository.save(empresa);
     }
 
-    public Empresa guardarEmpresa(Empresa empresa) {
-        return this.empresaRepository.save(empresa);
+    @Override
+    @Transactional
+    public void eliminar(Empresa empresa) {
+        empresaRepository.delete(empresa);
     }
 
-    public Empresa verEmpesaID(Long id){
-        Optional<Empresa> optMarca= empresaRepository.findById(id);
-        if(optMarca.isPresent()){
-            return optMarca.get();
-        }
-        else {
-            return  new Empresa();
-        }
-    }
-
-    public void eliminarEmpresaID(Long id){
-        empresaRepository.deleteById(id);
-    }
-
-
-    public Empresa encontrarEmpresa(Empresa empresa) {
+    @Override
+    public Empresa encontrarpersona(Empresa empresa) {
         return empresaRepository.findById(empresa.getId()).orElse(null);
-
     }
 
-
-
-
-
-
-
-
-
-
+    @Override
+    public List<Empresa> listarEmpresas() {
+        return (List<Empresa>) empresaRepository.findAll();
+    }
 
 
 }

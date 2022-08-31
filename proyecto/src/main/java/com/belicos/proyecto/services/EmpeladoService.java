@@ -1,4 +1,4 @@
 package com.belicos.proyecto.services;
 
-public class MovimientoDineroService {
+public class EmpeladoService {
 }

@@ -1,7 +1,6 @@
-package com.belicos.proyecto.services;
+package com.belicos.proyecto.services.servicesRest;
 
 import com.belicos.proyecto.entities.Empleado;
-import com.belicos.proyecto.entities.Empresa;
 import com.belicos.proyecto.repositories.EmpleadoRepository;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +8,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EmpleadoService {
+public class EmpleadoServiceR {
 
     EmpleadoRepository empleadoRepository;
 
-    public EmpleadoService(EmpleadoRepository empleadoRepository) {
+    public EmpleadoServiceR(EmpleadoRepository empleadoRepository) {
         this.empleadoRepository = empleadoRepository;
     }
 
