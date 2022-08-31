@@ -4,12 +4,15 @@ import com.belicos.proyecto.entities.Empresa;
 import com.belicos.proyecto.services.EmpresaService;
 import com.belicos.proyecto.services.servicesRest.EmpresaServiceR;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 import javax.validation.Valid;
 
@@ -25,7 +28,7 @@ public class EmpresaController {
     }
 
     @GetMapping("/")
-    public String inicio(Model model) {
+    public String inicio(Model model, @AuthenticationPrincipal SecurityProperties.User user) {
         var empresas = empresaService.listarEmpresas();
         model.addAttribute("empresas", empresas);
         return "index";
@@ -39,7 +42,10 @@ public class EmpresaController {
     }
 
     @PostMapping("/guardar")
-    public String guardar(Empresa empresa) {
+    public String guardar(@Valid Empresa empresa, Errors errores) {
+        if(errores.hasErrors()){
+            return "modificar";
+        }
         empresaService.guardar(empresa);
         return "redirect:/";
     }
@@ -60,5 +66,8 @@ public class EmpresaController {
         empresaService.eliminar(empresa);
         return "redirect:/";
     }
+
+
+
 
 }

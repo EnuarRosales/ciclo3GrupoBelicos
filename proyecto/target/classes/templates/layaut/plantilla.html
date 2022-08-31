@@ -1,0 +1,21 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymelealf.org"
+      xmlns:sec="http://www.thymelealf.org/extras/spring-security">
+<head>
+    <title>Plantilla</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<header th:fragment="header">
+    <h1>Control de Empresas holiiiiiiii</h1>
+</header>
+<footer th:fragment="footer">
+    <p>Derechos Reservados grupo Belicos Mision Tic 2022</p>
+
+	<form method="POTS" th:action="@{/login}">
+		<a href="#" onclick="this.parentNode.submit();">Cambiar de usuario</a>
+	</form>
+</footer>
+</body>
+</html>

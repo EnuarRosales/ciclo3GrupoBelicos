@@ -1,32 +1,33 @@
-<html xmlns:th ="http://www.thymelealf.org" >
+<html xmlns:th ="http://www.thymelealf.org"
+				 xmlns:sec="http://www.thymelealf.org/extras/spring-security">
 <head>
     <title>inicio</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
-<a th:href="@{/agregar}">Crear Empresa</a>
+<header th:replace="layaut/plantilla :: header"></header>
+<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}">Crear Empresa</a>
 <table border 1>
     <tr>
         <th>Nombre</th>
         <th>Direccion</th>
         <th>Telefono</th>
         <th>Nit</th>
-        <th>Editar</th>
-        <th>Eliminar</th>
+        <th sec:authorize="hasRole('ROLE_ADMIN')" >Editar</th>
+        <th sec:authorize="hasRole('ROLE_ADMIN')" >Eliminar</th>
     </tr>
         <tr th:each="empresa:${empresas}">
             <td th:text="${empresa.nombre}">Nombre </td>
             <td th:text="${empresa.direccion}">Direccion</td>
             <td th:text="${empresa.telefono}">Telefono</td>
             <td th:text="${empresa.NIT}">Nit</td>
-            <td><a th:href="@{/editar/} + ${empresa.id}"th:text="Editar"/></td>
-            <td><a th:href="@{/eliminar/}+ ${empresa.id}"th:text="Eliminar"/></td>
+            <td sec:authorize="hasRole('ROLE_ADMIN')" ><a th:href="@{/editar/} + ${empresa.id}"th:text="Editar"/></td>
+            <td sec:authorize="hasRole('ROLE_ADMIN')" ><a th:href="@{/eliminar/}+ ${empresa.id}"th:text="Eliminar"/></td>
     </tr>
 </table>
 
 
-
+<footer th:replace="layaut/plantilla :: footer"></footer>
 </body>
 </html>
