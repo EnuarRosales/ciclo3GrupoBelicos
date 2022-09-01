@@ -1,4 +1,26 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="layaut/plantilla :: head">
+	<title>Datos de la Persona</title>
+	<meta charset="UTF-8"/>
+</head>
+<body>
+<header th:replace="layaut/plantilla :: header"></header>
+<section th:replace="layaut/editarEmpresa :: editarEmpresa"></section>
+<footer th:replace="layaut/plantilla :: footer"></footer>
+</body>
+</html>
+
+
+
+<!--
+
+
+
+
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -43,3 +65,5 @@
 <footer th:replace="layaut/plantilla :: footer"></footer>
 </body>
 </html>
+
+-->

@@ -21,7 +21,7 @@ public class Empresa implements Serializable {
     @NotNull
     private Long telefono;
     @NotNull
-    private Long  NIT;
+    private String NIT;
 
 }
 
