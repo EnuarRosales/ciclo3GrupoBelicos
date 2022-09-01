@@ -7,27 +7,12 @@
 </head>
 <body>
 <header th:replace="layaut/plantilla :: header"></header>
-<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}">Crear Empresa</a>
-<table border 1>
-    <tr>
-        <th>Nombre</th>
-        <th>Direccion</th>
-        <th>Telefono</th>
-        <th>Nit</th>
-        <th sec:authorize="hasRole('ROLE_ADMIN')" >Editar</th>
-        <th sec:authorize="hasRole('ROLE_ADMIN')" >Eliminar</th>
-    </tr>
-        <tr th:each="empresa:${empresas}">
-            <td th:text="${empresa.nombre}">Nombre </td>
-            <td th:text="${empresa.direccion}">Direccion</td>
-            <td th:text="${empresa.telefono}">Telefono</td>
-            <td th:text="${empresa.NIT}">Nit</td>
-            <td sec:authorize="hasRole('ROLE_ADMIN')" ><a th:href="@{/editar/} + ${empresa.id}"th:text="Editar"/></td>
-            <td sec:authorize="hasRole('ROLE_ADMIN')" ><a th:href="@{/eliminar/}+ ${empresa.id}"th:text="Eliminar"/></td>
-    </tr>
-</table>
-
-
+<section th:replace="layaut/botonesAgregar :: botonesAgregar"></section>
+<section th:replace="layaut/agregarEmpresa :: agregarEmpresa"></section>
+<section th:replace="layaut/listadoEmpresas :: listadoEmpresas"></section>
 <footer th:replace="layaut/plantilla :: footer"></footer>
+
 </body>
 </html>
+
+
