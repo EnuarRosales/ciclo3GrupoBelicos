@@ -2,20 +2,79 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymelealf.org"
       xmlns:sec="http://www.thymelealf.org/extras/spring-security">
-<head>
+<head th:fragment="head">
     <title>Plantilla</title>
     <meta charset="UTF-8"/>
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </head>
 <body>
-<header th:fragment="header">
-    <h1>Control de Empresas holiiiiiiii</h1>
-</header>
-<footer th:fragment="footer">
-    <p>Derechos Reservados grupo Belicos Mision Tic 2022</p>
 
-	<form method="POTS" th:action="@{/login}">
-		<a href="#" onclick="this.parentNode.submit();">Cambiar de usuario</a>
-	</form>
+<header th:fragment="header">
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+		<div class="container">
+			<a th:href="@{/}" class="navbar-brand" >Control Empresas</a>
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav">
+					<li class="nav-item px-2">
+						<a th:href="@{/}" class="nav-link active">Inicio</a>
+					</li>
+				</ul>
+				<ul sec:authorize="isAuthenticated()" class="navbar-nav ml-auto">
+					<li class="nav-item mr-3">
+						<a href="#" class="nav-link">
+							<i class="fas fa-user"></i>
+							<span>Bievenido:</span>
+							<span sec:authentication="name">Usuario</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<form method="POST" th:action="@{/logout}">
+							<a href="#" onclick="this.parentNode.submit();" class="nav-link">
+								<i class="fas fa-user-times"></i> salir
+							</a>
+						</form>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+
+
+
+
+
+	<section id="main-header" class="py-2 bg-info text-white">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h1>
+						<i class="fas fa-cog"></i> Control Empresas
+					</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+</header>
+
+<footer th:fragment="footer" class="bg-warning text-white mt-5 p-5">
+	<div class="container">
+		<div class="col">
+			<p class="lead text-center">
+
+				<span> Belicos Mision Tic 22 &copy; <a href="http://www.globalmentoring.com.mx" target="_blank">GlobalMentoring.com.mx</a></span>
+			</p>
+		</div>
+	</div>
 </footer>
+
 </body>
 </html>
