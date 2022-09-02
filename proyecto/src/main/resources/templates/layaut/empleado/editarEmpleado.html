@@ -8,7 +8,7 @@
 </head>
 <body>
 <section th:fragment="editarEmpleado">
-	<form th:action="@{/guardarEmpelado}" th:object="${empleado}"
+	<form th:action="@{/guardarEmpleado}" th:object="${empleado}"
 	      method="POST" class="was-validated">
 		<input type="hidden" name="idEmpleado" th:field="*{id}"/>
 		<section th:replace="layaut/empleado/botonesEditarEmpleado :: botonesEditarEmpleado"></section>
