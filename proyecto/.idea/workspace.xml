@@ -13,9 +13,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -60,7 +60,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/User/Desktop/BELICOS/ciclo3GrupoBelicos/proyecto/src/main/resources/templates/layaut",
+    "last_opened_file_path": "C:/Users/User/Desktop/BELICOS/ciclo3GrupoBelicos/proyecto/src/main/resources/templates/layaut/empleado",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -69,10 +69,12 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\BELICOS\ciclo3GrupoBelicos\proyecto\src\main\resources\templates\layaut\empleado" />
       <recent name="C:\Users\User\Desktop\BELICOS\ciclo3GrupoBelicos\proyecto\src\main\resources\templates\layaut" />
       <recent name="C:\Users\User\Desktop\BELICOS\ciclo3GrupoBelicos\proyecto\src\main\resources\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\BELICOS\ciclo3GrupoBelicos\proyecto\src\main\resources\templates\layaut\empleado" />
       <recent name="C:\Users\User\Desktop\BELICOS\ciclo3GrupoBelicos\proyecto\src\main\resources\templates\layaut" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
