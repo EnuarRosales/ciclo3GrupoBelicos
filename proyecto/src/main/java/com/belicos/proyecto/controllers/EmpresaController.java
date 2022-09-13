@@ -6,6 +6,7 @@ import com.belicos.proyecto.services.servicesRest.EmpresaServiceR;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -13,6 +14,11 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.validation.Valid;
 
@@ -26,6 +32,11 @@ public class EmpresaController {
     public EmpresaController(EmpresaServiceR empresaServiceR) {
         this.empresaService = empresaService;
     }
+    @GetMapping("/")
+    public String index (Model model, @AuthenticationPrincipal OidcUser principal){
+        return "index";
+    }
+    /*
 
     @GetMapping("/")
     public String inicio(Model model, @AuthenticationPrincipal SecurityProperties.User user) {
@@ -33,7 +44,7 @@ public class EmpresaController {
         model.addAttribute("empresas", empresas);
         return "index";
 
-    }
+    }*/
 
     @GetMapping("/agregar")
     public String agregar(Empresa empresa) {
