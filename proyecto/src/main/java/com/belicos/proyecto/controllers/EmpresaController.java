@@ -36,15 +36,15 @@ public class EmpresaController {
     public String index (Model model, @AuthenticationPrincipal OidcUser principal){
         return "index";
     }
-    /*
 
-    @GetMapping("/")
+
+    @GetMapping("/Empresa")
     public String inicio(Model model, @AuthenticationPrincipal SecurityProperties.User user) {
         var empresas = empresaService.listarEmpresas();
         model.addAttribute("empresas", empresas);
-        return "index";
+        return "empresa";
 
-    }*/
+    }
 
     @GetMapping("/agregar")
     public String agregar(Empresa empresa) {
@@ -52,19 +52,19 @@ public class EmpresaController {
 
     }
 
-    @PostMapping("/guardar")
+    @PostMapping("/guardarEmpresa")
     public String guardar(@Valid Empresa empresa, Errors errores) {
         if(errores.hasErrors()){
             return "modificar";
         }
         empresaService.guardar(empresa);
-        return "redirect:/";
+        return "redirect:empresa";
     }
 
 
 
 
-    @GetMapping("/editar/{id}")
+    @GetMapping("/editarEmpresa/{id}")
     public String editar(Empresa empresa, Model model) {
         empresa = empresaService.encontrarpersona(empresa);
         model.addAttribute("empresa", empresa);
@@ -72,10 +72,10 @@ public class EmpresaController {
     }
 
 
-    @GetMapping("/eliminar/{id}")
+    @GetMapping("/eliminarEmpresa/{id}")
     public String eliminar(Empresa empresa) {
         empresaService.eliminar(empresa);
-        return "redirect:/";
+        return "redirect:empresa";
     }
 
 

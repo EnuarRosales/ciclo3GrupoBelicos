@@ -34,12 +34,12 @@
 								<td th:text="${empresa.telefono}">Telefono</td>
 								<td th:text="${empresa.NIT}">Nit</td>
 								<td>
-									<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editar/} + ${empresa.id}"
+									<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editarEmpresa/} + ${empresa.id}"
 									   class="btn btn-secondary">
 										<i class="fas fa-angle-double-right"></i> Editar
 									</a>
 								</td>
-								<td sec:authorize="hasRole('ROLE_ADMIN')" ><a th:href="@{/eliminar/}+ ${empresa.id}" class="btn btn-dark">
+								<td sec:authorize="hasRole('ROLE_ADMIN')" ><a th:href="@{/eliminarEmpresa/}+ ${empresa.id}" class="btn btn-dark">
 									<i class="fas fa-angle-double-right"></i> Eliminar
 								</a>
 
