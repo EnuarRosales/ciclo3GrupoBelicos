@@ -11,3 +11,4 @@ public interface IEmpresaService {
     public Empresa encontrarpersona(Empresa empresa);
 
 }
+
